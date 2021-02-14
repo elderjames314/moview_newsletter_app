@@ -1,9 +1,9 @@
-##Movie Newsletter App
+# Movie Newsletter App
 
 This is a platform that sends favorite movies to movie newsletter subscribers. It sends a newsletter to users showing the list of recommended movies (title, excerpts, and little description) to the user’s email.
 To subscribe to the Movie Newsletter application, the user needs to do one-time signup by entering the full name, email, and password and upon successful operation, the application will intelligently send 5-digit OTP (one-time-password) to the user email. The next page will be the confirmation page where the user will enter 5-digit sent to their registered email, this is to confirm that the email belongs to the user. 
 Lastly, the last page will be unsubscribing page where users will have the opportunity to unsubscribe in case they choose to.
-##Development
+## Development
 Framework/Language: Laravel v7.0 (PHP v7.4.0)
 Database: MYSQL
 Frontend: Bootstrap 4
@@ -13,7 +13,7 @@ Movie data Api:
 Guzzle package(preinstalled with Laravel) will be used to consumed the REST Api.
 Database used for testing: InMemory SQLite database.
 
-##Deployment
+## Deployment
 1.	Clone Movie_Newsletter_app repo on 
 https://github.com/elderjames314/moview_newsletter_app
 2.	Composer install
