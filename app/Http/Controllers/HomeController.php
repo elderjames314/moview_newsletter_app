@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\NewsLetter;
 use App\Subscriber;
 use App\User;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
 {
@@ -47,14 +48,34 @@ class HomeController extends Controller
 
         // return  $request->header('User-Agent');
 
-        $activeSubscribers = Subscriber::where("has_subscribed", 1)->where("has_confirmed", 1)->get();
+    //     $activeSubscribers = Subscriber::where("has_subscribed", 1)->where("has_confirmed", 1)->get();
 
-       for ($i=0; $i < count($activeSubscribers); $i++) { 
-           dd( $activeSubscribers[$i]->user->email);
-       }
+    //    for ($i=0; $i < count($activeSubscribers); $i++) { 
+    //        dd( $activeSubscribers[$i]->user->email);
+    //    }
 
         // $topRated =  getTopRatedMovies();
         // return view('emails.newsletterEmail', compact('topRated'));
+
+
+         //get the list of the active subscribers
+    $activeSubscribers = getActiveSubscribers();
+
+    for ($i=0; $i < count($activeSubscribers); $i++) { 
+
+        //dd($activeSubscribers[$i]->user->email);
+       
+        $data = getTopRatedMovies();
+
+    
+
+       Mail::to($activeSubscribers[$i]->user->email)->send(new NewsLetter($data));
+
+      
+  
+    }
+
+    return "email sent successfully";
 
     }
 }

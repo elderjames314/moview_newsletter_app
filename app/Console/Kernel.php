@@ -15,7 +15,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+        Commands\SendNewsletterEmailDailyCron::class,
     ];
 
     /**
@@ -26,11 +26,8 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        //get movie data from remote api
-        $data = getTopRatedMovies();
-
-        //send the email as schedule time.
-        $schedule->job(new SendNewsLetterEmailJob($data))->dailyAt('09:00');
+        $schedule->command('demo:cron')->dailyAt("22:50");
+                 //->dailyAt("21:30");
     }
 
     /**
