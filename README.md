@@ -4,14 +4,14 @@ This is a platform that sends favorite movies to movie newsletter subscribers. I
 To subscribe to the Movie Newsletter application, the user needs to do one-time signup by entering the full name, email, and password and upon successful operation, the application will intelligently send 5-digit OTP (one-time-password) to the user email. The next page will be the confirmation page where the user will enter 5-digit sent to their registered email, this is to confirm that the email belongs to the user. 
 Lastly, the last page will be unsubscribing page where users will have the opportunity to unsubscribe in case they choose to.
 ## Development
-Framework/Language: Laravel v7.0 (PHP v7.4.0)
-Database: MYSQL
-Frontend: Bootstrap 4
-IDE: Visual studio
-Movie data Api:
+1.  Framework/Language: Laravel v7.0 (PHP v7.4.0)
+2.  Database: MYSQL
+3.  Frontend: Bootstrap 4
+4.  IDE: Visual studio
+5.  Movie data Api:
  https://api.themoviedb.org/3/movie/top_rated?api_key=<<api_key>>&language=en-US&page=1
-Guzzle package(preinstalled with Laravel) will be used to consumed the REST Api.
-Database used for testing: InMemory SQLite database.
+6.  Guzzle package(preinstalled with Laravel) will be used to consumed the REST Api.
+7.  Database used for testing: InMemory SQLite database.
 
 ## Deployment
 1.	Clone Movie_Newsletter_app repo on 
