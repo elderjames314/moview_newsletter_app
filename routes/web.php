@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,6 +27,8 @@ Route::get("/resend-verification-email", "EmailOtpController@resendVerification"
 Route::get("/unsubscribe", "SubscriberController@unsubscribe")->name("unsubscribe");
 
 Route::get("/stop-sending-movies/{user_id}", "SubscriberController@stopSendingMovies")->name("stopSendingMovies");
+
+Route::get("/subscribe-back", "SubscriberController@subscribeBack")->name("subscribe-back");
 
 //playing ground url
 Route::get('/test', 'HomeController@test');

@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @author James, OLADIMEJI
+ * These are the utilities functions that will be needed time to time in the course of building application
+ */
+
 use App\ActivityLog;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
@@ -109,8 +114,9 @@ function getFirstNameOfLoggedInUser($fullname)
 
 function logError($error, $status_code)
 {
-    Log::debug('Something went wrong during user registration{Controller\Auth\RegisterController}: ' . $error);
-    abort($status_code);
+    Log::debug('Something went wrong during user registration: ' . $error);
+    //abort($status_code);
+    return response()->view('errors.error', compact('status_code'));
 }
 
 /**
@@ -132,4 +138,12 @@ function getActivityData($activity) {
     ]);
     //dd($activityData);
     return $activityData;
+}
+
+function checkIfOtpIsExpired($otpModel)
+{
+    $created_at = strtotime($otpModel->created_at);
+    $now = time();
+    $hoursSpent = abs($created_at - $now) / (60 * 60);
+    return $hoursSpent >  (int)env('EMAIL_OTP_EXPIRED') ? true : false;
 }

@@ -39,6 +39,10 @@ class User extends Authenticatable
 
     //relationship of user and emailOtp
     public function emailotp() {
-        return $this->hasOne(emailotp::class);
+        return $this->hasOne(EmailOtp::class);
+    }
+
+    public function subscriber() {
+        return $this->hasOne(Subscriber::class);
     }
 }

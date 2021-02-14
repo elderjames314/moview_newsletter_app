@@ -13,13 +13,24 @@
 
                 <div class="card-body">
 
+                    @if (isset($message)) 
+                        <div class="alert alert-info" role="alert">
+                            <span style="font-weight: bold; color:black"> 
+                                {{ $message }}</span>  
+                        </div> 
+                    
+                        
+                    @endif
+
                     @if (isset($subscribe) && !$subscribe)
                     <div class="alert alert-info" role="alert">
-                        <span style="font-weight: bold; color:red"> 
-                            You have successfully unsubscribe from our newsletters.
-
-                            <a href="#">Subscribe back</a>
+                        <span style="font-weight: bold; color:black"> 
+                            You have successfully unsubscribe from our newsletters. </span>
+                          
                     </div>
+                    <br>
+                    <br>
+                    If you wish to continue with us, kindly here -> <a style="font-weight: bold"  title="Click here to subscribe back to our newsletter" href="{{ route('subscribe-back') }}">Subscribe back</a>
 
                     @else 
 
